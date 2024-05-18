@@ -78,7 +78,7 @@ export const getSuggestedUsers=async(req,res)=>{
     }
 }
 export const updateUserProfile=async(req,res)=>{
-    const {fullname,username,email,currentPassword,newPassword,bio,link}=req.body;
+    const {fullName,username,email,currentPassword,newPassword,bio,link}=req.body;
     // console.log(currentPassword);
     // console.log(newPassword);
     let {profileImg,coverImg}=req.body;
@@ -118,7 +118,7 @@ export const updateUserProfile=async(req,res)=>{
         const uploadedResponse=await cloudinary.uploader.upload(coverImg);
         coverImg=uploadedResponse.secure_url;
        }
-       user.fullname=fullname||user.fullname;
+       user.fullName=fullName||user.fullName;
        user.email=email||user.email;
        user.username=username||user.username;
        user.bio=bio||user.bio;
