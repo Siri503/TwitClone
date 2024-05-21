@@ -11,11 +11,13 @@ import connectMongoDB from "./db/connectMongoDB.js";
 const app=express()
 dotenv.config()
 cloudinary.config({
-   cloud_name:process.env.CLODINARY_CLOUD_NAME,
-   api_key:process.env.CLODINARY_API_KEY,
-   api_secret:process.env.CLODINARY_API_SECRET,
-});
-app.use(express.json())
+    cloud_name:process.env.Cloud_name,
+    api_key:process.env.API_key,
+    api_secret:process.env.API_secret,
+ });
+
+console.log(process.env.api_key);
+app.use(express.json({limit:"5mb"}))
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser())
 app.use("/api/auth",authRoutes);

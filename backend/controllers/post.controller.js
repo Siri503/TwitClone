@@ -1,8 +1,7 @@
 import User from "../models/user.model.js";
 import Post from "../models/post.model.js";
 import Notification from "../models/notification.model.js"
-import {v2 as clodinary} from "cloudinary";
-import { Console } from "console";
+import {v2 as cloudinary} from "cloudinary";
 export const createPost=async(req,res)=>{
     try{
         const {text}=req.body;
@@ -16,7 +15,7 @@ export const createPost=async(req,res)=>{
             return res.status(400).json({error:"Post must have text or image"});           
         }
         if(img){
-            const uploadedResponse=await clodinary.uploader.upload(img);
+            const uploadedResponse=await cloudinary.uploader.upload(img);
             img=uploadedResponse.secure_url;
         }
         const newPost=new Post({
@@ -29,7 +28,7 @@ export const createPost=async(req,res)=>{
 
     }catch(error){
         res.status(500).json({error:"Internal Server Error"});
-        console.log("Eroor in createpost controller:",error);
+        console.log("Error in createpost controller:",error);
     }
 }
 export const deletePost=async(req,res)=>{
