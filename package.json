@@ -14,7 +14,6 @@
   "description": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "cjs": "^0.0.11",
     "cloudinary": "^2.2.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
